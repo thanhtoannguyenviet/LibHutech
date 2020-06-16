@@ -1,0 +1,15 @@
+﻿@model IEnumerable<LibHutech_DoAnLapTrinhWeb.Models.Sach> 
+@foreach (var item in Model)
+    {
+
+<a href="https://localhost:44385/Home/Viewer/@item.MaSach">
+    <div class="row m-4">
+        <div class="col-3"> <img src="@Url.Content("~/Uploads/Images/"+item.ImgSach)" class="Show-image" style="height: 100%; width: 100%;"></div>
+        <div class="col-9 text-dark">
+            <div class="font-weight-bold"><h4>@item.TenSach</h4></div>
+            <div class="text-dark">Lượt xem: @item.LuotXem</div>
+            <div class="text-dark">@item.NoiDung</div>
+        </div>
+    </div>
+</a>
+    }

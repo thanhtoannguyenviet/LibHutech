@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6ee945a3464c4eb8873984ea17729eaa" Name="Diagram1">
+        <EntityTypeShape EntityType="LibHutechModel.LichSu" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibHutechModel.Mon" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibHutechModel.Sach" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LibHutechModel.SinhVien" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <AssociationConnector Association="LibHutechModel.FK__LichSu__MaSach__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="LibHutechModel.FK__LichSu__MaSV__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="LibHutechModel.FK__Sach__MaMon__286302EC" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="LibHutechModel.sysdiagram" Width="1.5" PointX="5.375" PointY="4.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

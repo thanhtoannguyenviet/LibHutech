@@ -1,0 +1,77 @@
+﻿
+
+/* Set padding to keep content from hitting the edges */
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.navbar-header .navbar-brand {
+    color: black;
+    font-size: 27px;
+    font-weight: 500;
+}
+
+.navbar-header {
+    padding: 30px;
+}
+
+.navbar .navbar-nav .nav-item {
+    padding: 0 14px;
+}
+
+    .navbar .navbar-nav .nav-item a {
+        color: black;
+    }
+
+        .navbar .navbar-nav .nav-item a:hover {
+            color: #0063CD;
+        }
+
+
+#Section
+.Owl-Carousel .col-3 {
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.Owl-Carousel {
+    padding-bottom: 50px;
+}
+
+    .Owl-Carousel h3 {
+        padding: 25px;
+    }
+
+        .Owl-Carousel h3 span {
+            display: inline-block;
+            border-bottom: 2px solid #0063CD;
+        }
+
+.Owl-title {
+    background-color: #0063c6e6;
+    color: white;
+}
+
+.Owl-content {
+    text-align: center;
+}
+
+    .Owl-content h4 {
+        font-weight: 400;
+        font-size: 19px;
+        padding: 20px;
+    }
+
+    .Owl-content a {
+        color: white
+    }

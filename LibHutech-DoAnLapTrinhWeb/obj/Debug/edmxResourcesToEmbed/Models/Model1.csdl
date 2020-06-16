@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LibHutechModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="LichSu">
+    <Key>
+      <PropertyRef Name="MaSV" />
+      <PropertyRef Name="MaSach" />
+    </Key>
+    <Property Name="MaSV" Type="Int32" Nullable="false" />
+    <Property Name="MaSach" Type="Int32" Nullable="false" />
+    <Property Name="SoTrang" Type="Int32" />
+    <NavigationProperty Name="Sach" Relationship="Self.FK__LichSu__MaSach__2C3393D0" FromRole="LichSu" ToRole="Sach" />
+    <NavigationProperty Name="SinhVien" Relationship="Self.FK__LichSu__MaSV__2B3F6F97" FromRole="LichSu" ToRole="SinhVien" />
+  </EntityType>
+  <EntityType Name="Mon">
+    <Key>
+      <PropertyRef Name="MaMon" />
+    </Key>
+    <Property Name="MaMon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenMon" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ImgMon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Color" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Saches" Relationship="Self.FK__Sach__MaMon__286302EC" FromRole="Mon" ToRole="Sach" />
+    <Property Name="BgColor" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Sach">
+    <Key>
+      <PropertyRef Name="MaSach" />
+    </Key>
+    <Property Name="MaSach" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenSach" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ImgSach" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DuongDan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LuotXem" Type="Int32" />
+    <Property Name="MaMon" Type="Int32" />
+    <NavigationProperty Name="LichSus" Relationship="Self.FK__LichSu__MaSach__2C3393D0" FromRole="Sach" ToRole="LichSu" />
+    <NavigationProperty Name="Mon" Relationship="Self.FK__Sach__MaMon__286302EC" FromRole="Sach" ToRole="Mon" />
+    <Property Name="NoiDung" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SinhVien">
+    <Key>
+      <PropertyRef Name="MaSV" />
+    </Key>
+    <Property Name="MaSV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HoTen" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nganh" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="18" FixedLength="true" Unicode="false" />
+    <Property Name="ImgSv" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Active" Type="Boolean" />
+    <Property Name="Role" Type="Int32" />
+    <NavigationProperty Name="LichSus" Relationship="Self.FK__LichSu__MaSV__2B3F6F97" FromRole="SinhVien" ToRole="LichSu" />
+  </EntityType>
+  <Association Name="FK__LichSu__MaSach__2C3393D0">
+    <End Role="Sach" Type="Self.Sach" Multiplicity="1" />
+    <End Role="LichSu" Type="Self.LichSu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sach">
+        <PropertyRef Name="MaSach" />
+      </Principal>
+      <Dependent Role="LichSu">
+        <PropertyRef Name="MaSach" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LichSu__MaSV__2B3F6F97">
+    <End Role="SinhVien" Type="Self.SinhVien" Multiplicity="1" />
+    <End Role="LichSu" Type="Self.LichSu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SinhVien">
+        <PropertyRef Name="MaSV" />
+      </Principal>
+      <Dependent Role="LichSu">
+        <PropertyRef Name="MaSV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sach__MaMon__286302EC">
+    <End Role="Mon" Type="Self.Mon" Multiplicity="0..1" />
+    <End Role="Sach" Type="Self.Sach" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mon">
+        <PropertyRef Name="MaMon" />
+      </Principal>
+      <Dependent Role="Sach">
+        <PropertyRef Name="MaMon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LibHutechEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="LichSus" EntityType="Self.LichSu" />
+    <EntitySet Name="Mons" EntityType="Self.Mon" />
+    <EntitySet Name="Saches" EntityType="Self.Sach" />
+    <EntitySet Name="SinhViens" EntityType="Self.SinhVien" />
+    <AssociationSet Name="FK__LichSu__MaSach__2C3393D0" Association="Self.FK__LichSu__MaSach__2C3393D0">
+      <End Role="Sach" EntitySet="Saches" />
+      <End Role="LichSu" EntitySet="LichSus" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LichSu__MaSV__2B3F6F97" Association="Self.FK__LichSu__MaSV__2B3F6F97">
+      <End Role="SinhVien" EntitySet="SinhViens" />
+      <End Role="LichSu" EntitySet="LichSus" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sach__MaMon__286302EC" Association="Self.FK__Sach__MaMon__286302EC">
+      <End Role="Mon" EntitySet="Mons" />
+      <End Role="Sach" EntitySet="Saches" />
+    </AssociationSet>
+    <EntitySet Name="sysdiagrams" EntityType="LibHutechModel.sysdiagram" />
+  </EntityContainer>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+</Schema>

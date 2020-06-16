@@ -1,0 +1,21 @@
+﻿<nav class="col-md-2 d-none sticky-top d-md-block bg-light border-nav" style="height: 572px">
+    <ul class="nav flex-column">
+        <li class="nav-item ">
+            <a class="nav-link text-center @(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "text-primary" : "")" href="@Url.Action("Index","Admin")"><i class="fa fa-users fa-fw"></i> Overview</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-center @(ViewContext.RouteData.Values["Action"].ToString() == "SettingView" ? "text-primary" : "")" href="@Url.Action("Index","Mon")"><i class="fa fa-cog fa-fw"></i> Mon</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-center @(ViewContext.RouteData.Values["Action"].ToString() == "History" ? "text-primary" : "")" href="@Url.Action("Index","Sach")"><i class="fa fa-users fa-fw"></i> Sach</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-center @(ViewContext.RouteData.Values["Action"].ToString() == "Payment" ? "text-primary" : "")" href="@Url.Action("Index","Account")">
+               Tài khoản
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-center" href="@Url.Action("LogOut","Home")"><i class="fa fa-power-off"></i> Log out</a>
+        </li>
+    </ul>
+</nav>

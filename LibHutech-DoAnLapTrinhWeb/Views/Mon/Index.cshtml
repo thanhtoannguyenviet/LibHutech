@@ -1,0 +1,61 @@
+﻿@model IEnumerable<LibHutech_DoAnLapTrinhWeb.Models.Mon>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>IndexMon</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MaMon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenMon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImgMon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Color)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BgColor)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.MaMon)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TenMon)
+    </td>
+    <td>
+        <img src="@Url.Content("~/Uploads/Images/"+item.ImgMon)"
+             alt="Image"
+             width="100"
+             height="100" />
+    </td>
+    <td>
+         @Html.DisplayFor(modelItem=>item.Color)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.BgColor)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.MaMon }) |
+        @Html.ActionLink("Details", "Details", new { id = item.MaMon }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.MaMon })
+    </td>
+</tr>
+}
+
+</table>
